@@ -3,7 +3,7 @@
 $whiteList = @()
 
 # if you don't need some alias , you should set the alias to $blackList
-$blackList = @('cd', 'more')
+$blackList = @('cd', 'bash', 'more')
 
 # $autoColorCommands have "--color=auto" option
 $autoColorCommands = @(
