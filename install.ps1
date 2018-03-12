@@ -54,7 +54,6 @@ foreach ($name in $commands) {
 }
 $setAliasCommands | Out-File $modulePath -Encoding ascii -Append
 
-'Export-ModuleMember -Function ''\$wslcommand'',''\$wslcolorcommand''' | Out-File $modulePath -Encoding ascii -Append
-"Export-ModuleMember -Alias $($commands -join ',')" | Out-File $modulePath -Encoding ascii -Append
+New-ModuleManifest $modulePath.Replace('.psm1', '.psd1') -RootModule 'wsl-alias.psm1' -Author 'naminodarie' -ModuleVersion '0.1' -FunctionsToExport 'ToWslPath', '\$wslcommand', '\$wslcolorcommand' -AliasesToExport $commands
 
 Import-Module wsl-alias
